@@ -2,7 +2,7 @@
     let links=[
         {text:'Home', url:"/"},
         {text:'About', url:"/"},
-        {text:'Raise funds', url:"/"},
+        {text:'Raise funds', url:"/donate"},
         {text:'FAQs', url:"/"}
         ];
 </script>
