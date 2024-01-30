@@ -15,7 +15,7 @@
         <input type="text" placeholder="Ailment/Medical condition" class="input input-bordered input-md w-[500px]" />
         <div class="mb-2">Hospital name</div>
         <input type="text" placeholder="Hospital name" class="input input-bordered input-md w-[500px]" />
-        
+        <div class="my-2">Hospitalisation status</div>
         <div class="my-2">Amount in ETH</div>
         <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" />
         <div class="my-2">Wallet Address</div>
