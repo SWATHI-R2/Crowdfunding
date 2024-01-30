@@ -1,6 +1,5 @@
 <script>
   import { Link } from "svelte-routing";
-
     let links=[
         {text:'Home', url:"/"},
         {text:'About', url:"/"},
@@ -8,11 +7,6 @@
         {text:'FAQs', url:"/"}
         ];
 </script>
-
-<style>
- 
- 
-</style>
 
 <div class="navbar bg-[#0b4b44] text-neutral-content">
   <a class="btn btn-ghost normal-case text-xl mr-auto">Donation</a>

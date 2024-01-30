@@ -1,3 +1,4 @@
+
 <script lang="ts">
   import Navbar from "../components/Navbar.svelte";
   import medical from '../assets/medical.jpeg'
@@ -32,7 +33,7 @@
 <main>
   <Navbar/>
   <section>
-    <h1 class="text-center text-5xl font-bold my-10 text-emerald-900">{projects[id -1].title}</h1>
+  <h1 class="text-center text-5xl font-bold my-10 text-emerald-900">{projects[id -1].title}</h1>
   <div class="flex justify-center items-center flex-col m-40 rounded-3xl shadow-2xl py-20">
     <div class="carousel w-[1024px]">
       <div id="slide1" class="carousel-item relative w-full">

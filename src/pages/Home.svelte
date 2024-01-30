@@ -26,8 +26,8 @@
         id: 3
       }
     ];
+   
 </script>
-  
   <main>
     <Navbar />
       <section>
@@ -43,6 +43,11 @@
   </main>
   
   <style>
+    :global(body) {
+    width: 100%; 
+    height: 100vh; 
+    margin: auto;
+  }
     body {
       background-color: #f5f5f5;
       font-family: 'Arial', sans-serif;

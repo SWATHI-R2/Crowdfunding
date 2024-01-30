@@ -3,7 +3,6 @@
   import Home from "./pages/Home.svelte";
   import Donation from "./pages/Donation.svelte";
   import Donate from "./pages/Donate.svelte";
-
   export let url = "";
 </script>
 

@@ -1,4 +1,3 @@
-
 <script lang="ts">
   
   import { Link } from "svelte-routing";
@@ -11,7 +10,7 @@
   
   <div class="card w-96 glass ">
     <figure>
-    {#if imageSrc}
+{#if imageSrc}
       <img src={imageSrc} alt={title} />
     {/if}
     </figure>
