@@ -4,7 +4,7 @@
         {text:'Home', url:"/"},
         {text:'About', url:"/"},
         {text:'Raise funds', url:"/donate"},
-        {text:'FAQs', url:"/"}
+        {text:'FAQs', url:"/faq"}
         ];
 </script>
 
