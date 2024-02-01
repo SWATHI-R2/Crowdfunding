@@ -2,7 +2,7 @@
   import { Link } from "svelte-routing";
     let links=[
         {text:'Home', url:"/"},
-        {text:'About', url:"/"},
+        {text:'About', url:"about"},
         {text:'Raise funds', url:"/donate"},
         {text:'FAQs', url:"/faq"}
         ];
