@@ -8,15 +8,11 @@
     { text: 'FAQs', url: '/faq' }
   ];
 
-  // Function to connect MetaMask
   const connectMetaMask = async () => {
     try {
-      // Check if MetaMask is installed
       if (window.ethereum) {
-        // Request account access
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         console.log('MetaMask connected!');
-        // Add additional logic if needed after successful connection
       } else {
         console.error('MetaMask not installed.');
       }
@@ -36,8 +32,6 @@
       </span>
     </Link>
   {/each}
-
-  <!-- Connect MetaMask button -->
   <button on:click={connectMetaMask} class="btn btn-ghost normal-case text-xl">
     Connect
   </button>
