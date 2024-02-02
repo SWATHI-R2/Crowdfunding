@@ -4,13 +4,13 @@
 <div>
     <Navbar/>
     <div class="  shadow-lg rounded-xl border broder-2 max-w-screen-md flex flex-col mx-auto mt-20">
-      <div class="text-3xl text-white text-center font-semibold mb-5 bg-accent p-10 rounded-t-xl" >Add Donation</div>
+      <div class="text-3xl text-white text-center font-semibold mb-5 bg-accent p-10 rounded-t-xl" >Start a Campaign</div>
       <div class="mx-auto p-10 px-20 w-fit flex flex-col">
         
         <div class="mb-2">Patient's Name</div>
         <input type="text" placeholder="Name" class="input input-bordered input-md w-[500px]" />
-        <div class="my-2">Date of Birth</div>
-        <input type="date" placeholder="Date of Birth" class="mx-auto input input-bordered input-md w-full max-w-s " />
+        <div class="mb-2">Campaign title</div>
+        <input type="text" placeholder="title" class="input input-bordered input-md w-[500px]" />
         <div class="my-2">Ailment/Medical condition</div>
         <input type="text" placeholder="Ailment/Medical condition" class="input input-bordered input-md w-[500px]" />
         <div class="mb-2">Hospital name</div>
