@@ -1,5 +1,7 @@
+<!-- Navbar.svelte -->
 <script>
   import { Link } from "svelte-routing";
+  import { isConnected, walletAddress } from "../stores/stores";
 
   let links = [
     { text: 'Home', url: '/' },
@@ -12,6 +14,9 @@
     try {
       if (window.ethereum) {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
+        isConnected.set(true);
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        walletAddress.set(accounts[0] || '');
         console.log('MetaMask connected!');
       } else {
         console.error('MetaMask not installed.');
@@ -20,10 +25,26 @@
       console.error('Error connecting to MetaMask:', error);
     }
   };
+
+  const disconnectMetaMask = () => {
+    isConnected.set(false);
+    walletAddress.set('');
+  };
 </script>
 
 <div class="navbar bg-[#0b4b44] text-neutral-content">
-  <a class="btn btn-ghost normal-case text-xl mr-auto">Donation</a>
+  <a class="btn btn-ghost normal-case text-3xl mr-auto"></a>
+  
+  {#if $isConnected}
+    
+    <button on:click={disconnectMetaMask} class="btn btn-ghost normal-case text-xl">
+      Disconnect
+    </button>
+  {:else}
+    <button on:click={connectMetaMask} class="btn btn-ghost normal-case text-xl">
+      Connect
+    </button>
+  {/if}
   
   {#each links as { text, url }}
     <Link to={url}>
@@ -32,7 +53,5 @@
       </span>
     </Link>
   {/each}
-  <button on:click={connectMetaMask} class="btn btn-ghost normal-case text-xl">
-    Connect
-  </button>
 </div>
+

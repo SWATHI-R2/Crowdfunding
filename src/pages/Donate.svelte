@@ -1,5 +1,6 @@
 <script lang="ts">
   import Navbar from "../components/Navbar.svelte"; 
+  import { isConnected, walletAddress } from "../stores/stores";
 </script>
 <div>
     <Navbar/>
@@ -24,9 +25,11 @@
           <option value="h4">Will be hospitalised soon</option>
         </select>
         <div class="my-2">Amount in ETH</div>
+        {#if $isConnected}
+        <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" value="{$walletAddress}" readonly />
+        {:else}
         <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" />
-        <div class="my-2">Wallet Address</div>
-        <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" />
+        {/if}
         <div class="my-2">Description</div>
         <input type="text" placeholder="Description" class="textarea textarea-bordered w-[500px] h-[150px]">
         <div class="my-2">Upload Document</div>
