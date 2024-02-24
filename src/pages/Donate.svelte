@@ -1,13 +1,15 @@
 <script lang="ts">
+  import { contract } from "../api/api";
   import Navbar from "../components/Navbar.svelte"; 
   import { eth } from "../stores/stores";
 
-  $:{
-    console.log($eth.walletAddress)
+  function callContranct ( ) {
+    contract.methods.createDonation(0,'123').send({from:$eth.walletAddress}).on('receipt', x => console.log(x));
   }
 </script>
 <div>
     <Navbar/>
+    <button on:click={callContranct}>hi</button>
     <div class="  shadow-lg rounded-xl border broder-2 max-w-screen-md flex flex-col mx-auto mt-20">
       <div class="text-3xl text-white text-center font-semibold mb-5 bg-accent p-10 rounded-t-xl" >Start a Campaign</div>
       <div class="mx-auto p-10 px-20 w-fit flex flex-col">
@@ -28,12 +30,11 @@
           <option value="h3">Recently discharged from the hospital</option>
           <option value="h4">Will be hospitalised soon</option>
         </select>
-        {walletAddress}
         <div class="mb-2">Amount in ETH</div>
         <input type="text" placeholder="Amount" class="input input-bordered input-md w-[500px]" />
         <div class="my-2">Wallet Address</div>
-        {#if $isConnected}
-        <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" value="{$walletAddress}" readonly />
+        {#if $eth.isConnected}
+        <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" value= {$eth.walletAddress} readonly />
         {:else}
         <input type="text" placeholder="Address" class="mx-auto input input-bordered input-md w-full max-w-s" />
         {/if}

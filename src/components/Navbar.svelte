@@ -19,7 +19,7 @@
         $eth.walletAddress = accounts[0] ?? '';
         $eth.isConnected = true;
         console.log('MetaMask connected!');
-      } else {``
+      } else {
         alert('MetaMask not installed.');
       }
     } catch (error) {
