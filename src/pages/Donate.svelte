@@ -1,6 +1,10 @@
 <script lang="ts">
   import Navbar from "../components/Navbar.svelte"; 
-  import { isConnected, walletAddress } from "../stores/stores";
+  import { eth } from "../stores/stores";
+
+  $:{
+    console.log($eth.walletAddress)
+  }
 </script>
 <div>
     <Navbar/>
@@ -24,6 +28,7 @@
           <option value="h3">Recently discharged from the hospital</option>
           <option value="h4">Will be hospitalised soon</option>
         </select>
+        {walletAddress}
         <div class="mb-2">Amount in ETH</div>
         <input type="text" placeholder="Amount" class="input input-bordered input-md w-[500px]" />
         <div class="my-2">Wallet Address</div>

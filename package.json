@@ -1,8 +1,7 @@
 {
   "name": "inlab",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.0","type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -23,6 +22,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "svelte-routing": "^2.5.0"
+    "svelte-routing": "^2.5.0",
+    "web3": "^4.5.0"
   }
 }
