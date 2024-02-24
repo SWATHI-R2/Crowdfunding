@@ -1,44 +1,27 @@
-<script>
+<script lang='ts'>
   import Card from '../components/Cards.svelte';
     import Navbar from '../components/Navbar.svelte';
-    
-    import img from '../assets/medical.jpeg'
-    const projects = [
-      {
-        title: 'My Little Boy Can’t Breathe, And I’m Helpless. Please Save Him For Me.',
-        imageSrc: img,
-        fundsRaised: 3000,
-        goal: 10000,
-        id: 1
-      },
-      {
-        title: 'My Family Needs Your Help To Save Aziz From Lymphoma!',
-        imageSrc: img,
-        fundsRaised: 5000,
-        goal: 10000,
-        id: 2
-      },
-      {
-        title: 'My Mother Is Fighting For Her Life And We Need Your Support To Save Her',
-        imageSrc: img,
-        fundsRaised: 9000,
-        goal: 10000,
-        id: 3
-      }
-    ];
+  import img from '../assets/medical.jpeg'
+  import { onMount } from 'svelte';
+  import { contract } from '../api/api';
+  import type { Donation } from '../stores/stores';
+  let projects :Donation[] =[]
+    onMount(async()=> projects = (await contract.methods.allCampaigns().call()))
    
 </script>
-  <main>
+  <main class="bg-zinc-300">
     <Navbar />
       <section>
         <h1 class="text-center text-5xl font-bold my-10 text-emerald-900">Health Crowdfunding</h1>
         <p class="text-black text-center text-3xl">Welcome to our health crowdfunding platform. Support those in need!</p>
-      <div class="flex justify-center items-center py-20">
-        {#each projects as project}
-        <div class="p-10">
-          <Card {...project} />
-        </div>
-        {/each}
+      <div class="flex justify-center items-center py-20 ">
+        {#if projects.length}
+          {#each projects as project}
+          <div class="p-10">
+            <Card  imageSrc={img} amount={project.amount} id={project.id} fund={project.fund} title={project.title} fundsRaiser={project.fundraiser} />
+          </div>
+          {/each}
+        {/if}
       </div>
   </main>
   

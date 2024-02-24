@@ -1,11 +1,34 @@
 <script lang="ts">
+  import { navigate } from "svelte-routing";
   import { contract } from "../api/api";
   import Navbar from "../components/Navbar.svelte"; 
   import { eth } from "../stores/stores";
+  import Donation from "./DonationPage.svelte";
 
-  function callContranct ( ) {
-    contract.methods.createDonation(0,'123').send({from:$eth.walletAddress}).on('receipt', x => console.log(x));
+  
+  let  patientName='';
+  let  title = '';
+  let  medicalCondition = '';
+  let  hospitalName = '';
+  let description = '';
+  let  amount = 100;
+
+
+  async function callContranct ( ) {
+    console.log(await contract.methods.allCampaigns().call())
   }
+
+  async function  createaDonation() {
+    try {
+      var result = await contract.methods.createDonation(amount,patientName,title,medicalCondition,hospitalName,description).send({from:$eth.walletAddress}).on('receipt', x => console.log(x));
+      console.log(result)
+      navigate('/');
+    }
+    catch (error) {
+      alert(error)
+    }
+  }
+
 </script>
 <div>
     <Navbar/>
@@ -15,34 +38,26 @@
       <div class="mx-auto p-10 px-20 w-fit flex flex-col">
         
         <div class="mb-2">Patient's Name</div>
-        <input type="text" placeholder="Name" class="input input-bordered input-md w-[500px]" />
+        <input bind:value={patientName} type="text" placeholder="Name" class="input input-bordered input-md w-[500px]" />
         <div class="mb-2">Campaign title</div>
-        <input type="text" placeholder="title" class="input input-bordered input-md w-[500px]" />
+        <input bind:value={title} type="text" placeholder="title" class="input input-bordered input-md w-[500px]" />
         <div class="my-2">Ailment/Medical condition</div>
-        <input type="text" placeholder="Ailment/Medical condition" class="input input-bordered input-md w-[500px]" />
+        <input bind:value={medicalCondition} type="text" placeholder="Ailment/Medical condition" class="input input-bordered input-md w-[500px]" />
         <div class="mb-2">Hospital name</div>
-        <input type="text" placeholder="Hospital name" class="input input-bordered input-md w-[500px]" />
-        <div class="my-2">Hospitalisation status</div>
-        <select class="mx-auto input input-bordered input-md w-full max-w-s">
-          <option value="" disabled selected>Select</option>
-          <option value="h1">Currently Hospitalised</option>
-          <option value="h2">Does not require hospitalisation</option>
-          <option value="h3">Recently discharged from the hospital</option>
-          <option value="h4">Will be hospitalised soon</option>
-        </select>
+        <input bind:value={hospitalName} type="text" placeholder="Hospital name" class="input input-bordered input-md w-[500px]" />
         <div class="mb-2">Amount in ETH</div>
-        <input type="text" placeholder="Amount" class="input input-bordered input-md w-[500px]" />
+        <input bind:value={amount} type="text" placeholder="Amount" class="input input-bordered input-md w-[500px]" />
         <div class="my-2">Wallet Address</div>
         {#if $eth.isConnected}
-        <input type="text" placeholder="Amount" class="mx-auto input input-bordered input-md w-full max-w-s" value= {$eth.walletAddress} readonly />
+        <input type="text" placeholder="Wallet Address" class="mx-auto input input-bordered input-md w-full max-w-s" value= {$eth.walletAddress} readonly />
         {:else}
         <input type="text" placeholder="Address" class="mx-auto input input-bordered input-md w-full max-w-s" />
         {/if}
         <div class="my-2">Description</div>
-        <input type="text" placeholder="Description" class="textarea textarea-bordered w-[500px] h-[150px]">
+        <input bind:value={description} type="text" placeholder="Description" class="textarea textarea-bordered w-[500px] h-[150px]">
         <div class="my-2">Upload Document</div>
-        <input type="file" accept="image/jpeg" class="mx-auto w-full max-w-s" />
-        <button class="btn btn-accent mt-10">Create Donation</button>
+        <!-- <input bind:value={} type="file" accept="image/jpeg" class="mx-auto w-full max-w-s" /> -->
+        <button on:click={createaDonation} class="btn btn-accent mt-10">Create Donation</button>
       </div>
     </div>
   </div>
