@@ -9,7 +9,7 @@
     onMount(async()=> projects = (await contract.methods.allCampaigns().call()))
    
 </script>
-  <main class="bg-zinc-300">
+  <main class="bg-white">
     <Navbar />
       <section>
         <h1 class="text-center text-5xl font-bold my-10 text-emerald-900">Health Crowdfunding</h1>

@@ -9,7 +9,7 @@
   export let fundsRaiser:string;
   </script>
   
-  <div class="card w-96 glass bg-slate-600 ">
+  <div class="card w-96 glass bg-gray-300">
     <figure>
 {#if imageSrc}
       <img src={imageSrc} alt={title} />

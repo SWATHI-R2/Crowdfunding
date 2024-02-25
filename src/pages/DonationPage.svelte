@@ -43,15 +43,15 @@
   <Navbar/>
   <section>
   <h1 class="text-center text-5xl font-bold my-10 text-emerald-900">{donation.title}</h1>
-  <div class="flex justify-center bg-zinc-300 text-black items-center flex-col m-40 rounded-3xl shadow-2xl py-20">
-
-    <div class="my-5 text-4xl font-semibold">About the fundsRaiser</div>
-    <div class="px-20 text-2xl">
-        {donation.amount}
-        {donation.description}
-        {donation.patientName}
-        {donation.fund}
-        {donation.hospitalName}
+  <div class="flex justify-center bg-zinc-300 text-black items-center flex-col m-20 rounded-3xl shadow-2xl py-20">
+    <div class="my-10 text-4xl font-semibold">About the fundsRaiser</div>
+    <div class="px-20 text-2xl"> 
+      <!--{donation.amount}-->
+      {donation.description}
+      <!--{donation.patientName}-->
+      <!--{donation.fund}-->
+      <!--{donation.hospitalName}-->
+        
       </div>
       <input class="input input-bordered bg-zinc-300 mt-10" type="text" bind:value={donateAmount} >
       <button on:click={()=> donate()} class="btn btn-accent btn-lg mt-10 mx-auto">Donate now</button>
