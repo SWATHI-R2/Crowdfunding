@@ -32,8 +32,8 @@
 </script>
 <div>
     <Navbar/>
-    <button on:click={callContranct}>hi</button>
-    <div class="  shadow-lg rounded-xl border broder-2 max-w-screen-md flex flex-col mx-auto mt-20">
+    <button on:click={callContranct}></button>
+    <div class=" shadow-lg rounded-xl border broder-2 max-w-screen-md flex flex-col mx-auto mt-20">
       <div class="text-3xl text-white text-center font-semibold mb-5 bg-accent p-10 rounded-t-xl" >Start a Campaign</div>
       <div class="mx-auto p-10 px-20 w-fit flex flex-col">
         
@@ -55,7 +55,7 @@
         {/if}
         <div class="my-2">Description</div>
         <input bind:value={description} type="text" placeholder="Description" class="textarea textarea-bordered w-[500px] h-[150px]">
-        <div class="my-2">Upload Document</div>
+        <!-- <div class="my-2">Upload Document</div>-->
         <!-- <input bind:value={} type="file" accept="image/jpeg" class="mx-auto w-full max-w-s" /> -->
         <button on:click={createaDonation} class="btn btn-accent mt-10">Create Donation</button>
       </div>

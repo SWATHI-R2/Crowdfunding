@@ -11,14 +11,14 @@
   
   <div class="card w-96 glass bg-gray-300">
     <figure>
-{#if imageSrc}
+    {#if imageSrc}
       <img src={imageSrc} alt={title} />
     {/if}
     </figure>
     <div class="card-body">
-      <h2 class="card-title text-lg">{title}</h2>
+      <h2 class="card-title text-lg text-emerald-900">{title}</h2>
       <progress class="progress progress-accent w-full" value={Number(fund)} max={Number(amount)}></progress>
-      <p class="fund-details">
+      <p class="fund-details text-emerald-900">
         <span>Raised: Eth {Number(fund)}</span>
         <span>Goal: Eth {Number(amount)}</span>
       </p>
