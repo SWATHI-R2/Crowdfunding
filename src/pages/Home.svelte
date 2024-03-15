@@ -25,20 +25,4 @@
     </div>
   </section>
 </main>
-
-  
-  <style>
-    :global(body) {
-    width: 100%; 
-    height: 100vh; 
-    margin: auto;
-  }
-    body {
-      background-color: #f5f5f5;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-  
-  </style>
   
